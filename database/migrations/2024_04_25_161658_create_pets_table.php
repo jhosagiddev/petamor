@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('raza');
             $table->enum('sex', ['M', 'F']);
+            $table->enum('is_ready_to_breed', ['yes', 'no'])->default('no');
             $table->timestamps();
         });
     }

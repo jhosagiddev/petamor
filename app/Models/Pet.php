@@ -11,6 +11,14 @@ class Pet extends Model
 
     protected $fillable = [];
 
+    protected function casts(): array
+    {
+        return [
+            'sex' => 'string',
+            'is_ready_to_breed' => 'string',
+        ];
+    }
+
 
     public function user()
     {
