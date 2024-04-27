@@ -16,8 +16,16 @@ class CustomerFactory extends Factory
      */
     public function definition(): array
     {
+        $status = $this->faker->randomElement(['active', 'pending']);
         return [
-            //
+            'status' => $status,
+            'name' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'phone' => $this->faker->phoneNumber(),
+            'address' => $this->faker->streetAddress(),
+            'city' => $this->faker->city(),
+            'postal_code' => $this->faker->postcode()
+
         ];
     }
 }

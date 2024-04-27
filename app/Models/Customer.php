@@ -11,6 +11,13 @@ class Customer extends Model
 
     protected $fillable = [];
 
+    protected function casts(): array
+    {
+        return [
+            'status' => 'string',
+        ];
+    }
+
 
     public function pets()
     {

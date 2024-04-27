@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('phone');
             $table->string('address');
             $table->string('city');
-            $table->string('state');
             $table->string('postal_code');
+            $table->enum('status', ['active', 'pending'])->default('active');
             $table->timestamps();
         });
     }
