@@ -3,17 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pet;
+use Illuminate\Http\Request;
+use App\Filters\PetFilter;
 use App\Http\Requests\StorePetRequest;
 use App\Http\Requests\UpdatePetRequest;
+use App\Http\Resources\PetCollection;
 
 class PetController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
+        $filter = new PetFilter();
+        $queryItems = $filter->transform($request);
+        if (count($queryItems) == 0) {
+            return new PetCollection(Pet::paginate());
+        } else {
+            $pets = Pet::where($queryItems)->paginate();
+            return new PetCollection($pets->appends($request->query()));
+        }
     }
 
     /**

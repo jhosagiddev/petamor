@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use Illuminate\Http\Request;
+use App\Filters\CustomerFilter;
+use App\Http\Resources\CustomerCollection;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 
@@ -11,9 +14,18 @@ class CustomerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $filter = new CustomerFilter();
+        $queryItems = $filter->transform($request);
+
+        $includePets = $request->query('includePets');
+        $customers = Customer::where($queryItems);
+        if ($includePets) {
+            $customers->with('pets');
+        }
+
+        return new CustomerCollection($customers->paginate()->appends($request->query()));
     }
 
     /**
