@@ -10,10 +10,89 @@ use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
 use App\Http\Resources\CustomerResource;
 
+
+/**
+ * @OA\Info(
+ *             title="API PetApi",
+ *             version="1.0",
+ *             description="Listado de URI's de la API para mascotas"
+ * )
+ *
+ * @OA\Server(url="http://apirest.test")
+ */
+
+
 class CustomerController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Lista todos los registros de Customers
+     * @OA\Get (
+     *     path="/api/v1/customers",
+     *     tags={"Customer"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="OK",
+     *         @OA\JsonContent(
+     *             @OA\Property(
+     *                 type="array",
+     *                 property="rows",
+     *                 @OA\Items(
+     *                     type="object",
+     *                     @OA\Property(
+     *                         property="id",
+     *                         type="number",
+     *                         example="1"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="name",
+     *                         type="string",
+     *                         example="Aderson Felix"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="email",
+     *                         type="string",
+     *                         example="malcolm@example.com"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="phone",
+     *                         type="string",
+     *                         example="832-226-9995"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="address",
+     *                         type="string",
+     *                         example="667 Wintheiser Ford"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="city",
+     *                         type="string",
+     *                         example="South Esperanza"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="postalCode",
+     *                         type="string",
+     *                         example="51649"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="status",
+     *                         type="string",
+     *                         example="pending"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="created_at",
+     *                         type="string",
+     *                         example="2023-02-23T00:09:16.000000Z"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="updated_at",
+     *                         type="string",
+     *                         example="2023-02-23T12:33:45.000000Z"
+     *                     )
+     *                 )
+     *             )
+     *         )
+     *     )
+     * )
      */
     public function index(Request $request)
     {

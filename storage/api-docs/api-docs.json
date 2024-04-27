@@ -1,0 +1,86 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API PetApi",
+        "description": "Listado de URI's de la API para mascotas",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://apirest.test"
+        }
+    ],
+    "paths": {
+        "/api/v1/customers": {
+            "get": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Lista todos los registros de Customers",
+                "operationId": "a29d5f0bab561196b8e3bd82422e58e6",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Aderson Felix"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "malcolm@example.com"
+                                                    },
+                                                    "phone": {
+                                                        "type": "string",
+                                                        "example": "832-226-9995"
+                                                    },
+                                                    "address": {
+                                                        "type": "string",
+                                                        "example": "667 Wintheiser Ford"
+                                                    },
+                                                    "city": {
+                                                        "type": "string",
+                                                        "example": "South Esperanza"
+                                                    },
+                                                    "postalCode": {
+                                                        "type": "string",
+                                                        "example": "51649"
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "pending"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2023-02-23T00:09:16.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2023-02-23T12:33:45.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
