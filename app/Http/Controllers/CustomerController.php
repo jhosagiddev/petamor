@@ -15,7 +15,7 @@ use App\Http\Resources\CustomerResource;
  * @OA\Info(
  *             title="API PetApi",
  *             version="1.0",
- *             description="Listado de URI's de la API para mascotas"
+ *             description="List of Pet API URI's"
  * )
  *
  * @OA\Server(url="http://apirest.test")
@@ -25,7 +25,7 @@ use App\Http\Resources\CustomerResource;
 class CustomerController extends Controller
 {
     /**
-     * Lista todos los registros de Customers
+     * Lists all records of Customers
      * @OA\Get (
      *     path="/api/v1/customers",
      *     tags={"Customer"},
@@ -125,7 +125,7 @@ class CustomerController extends Controller
     }
 
     /**
-     * Mostrar la información de un Customer
+     * List the information of a Customer by ID
      * @OA\Get (
      *     path="/api/v1/customers/{id}",
      *     tags={"Customer"},

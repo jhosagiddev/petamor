@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "API PetApi",
-        "description": "Listado de URI's de la API para mascotas",
+        "description": "List of Pet API URI's",
         "version": "1.0"
     },
     "servers": [
@@ -16,7 +16,7 @@
                 "tags": [
                     "Customer"
                 ],
-                "summary": "Lista todos los registros de Customers",
+                "summary": "Lists all records of Customers",
                 "operationId": "a29d5f0bab561196b8e3bd82422e58e6",
                 "responses": {
                     "200": {
@@ -87,7 +87,7 @@
                 "tags": [
                     "Customer"
                 ],
-                "summary": "Mostrar la información de un Customer",
+                "summary": "List the information of a Customer by ID",
                 "operationId": "155f59b614e1620e56fcc62e7ac86776",
                 "parameters": [
                     {
