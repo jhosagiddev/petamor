@@ -13,4 +13,5 @@ Route::get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers'], function () {
     Route::apiResource('customers', CustomerController::class);
     Route::apiResource('pets', PetController::class);
+    Route::post('pets/bulk', ['uses' => 'PetController@bulkStore']);
 });

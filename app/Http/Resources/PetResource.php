@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CustomerResource extends JsonResource
+class PetResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,14 +16,13 @@ class CustomerResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'customerId' => $this->customer_id,
             'name' => $this->name,
-            'email' => $this->email,
-            'phone' => $this->phone,
-            'address' => $this->address,
-            'city' => $this->city,
-            'postalCode' => $this->postal_code,
-            'status' => $this->status,
-            'pet' => PetResource::collection($this->whenLoaded('pets')),
+            'breed' => $this->breed,
+            'age' => $this->age,
+            'color' => $this->color,
+            'sex' => $this->sex,
+            'isBreed' => $this->is_ready_to_breed,
         ];
     }
 }

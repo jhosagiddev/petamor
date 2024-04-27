@@ -9,7 +9,15 @@ class Pet extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = [
+        'customer_id',
+        'name',
+        'breed',
+        'age',
+        'color',
+        'sex',
+        'is_ready_to_breed',
+    ];
 
     protected function casts(): array
     {

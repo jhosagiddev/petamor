@@ -15,16 +15,11 @@ class PetFilter extends ApiFilter
         'age' => ['eq', 'gt', 'lt', 'lte', 'gte'],
         'color' => ['eq'],
         'sex' => ['eq'],
-        'is_ready_to_breed' => ['eq'],
+        'isReadyToBreed' => ['eq'],
     ];
     protected array $columnMap = [
         'customerId' => 'customer_id',
-        'name' => 'name',
-        'breed' => 'breed',
-        'age' => 'age',
-        'color' => 'color',
-        'sex' => 'sex',
-        'breed' => 'is_ready_to_breed',
+        'isReadyToBreed' => 'is_ready_to_breed',
     ];
     protected array $operatorMap = [
         'eq' => '=',

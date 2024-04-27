@@ -14,17 +14,11 @@ class CustomerFilter extends ApiFilter
         'phone' => ['eq'],
         'address' => ['eq'],
         'city' => ['eq'],
-        'postal_code' => ['eq'],
+        'postalCode' => ['eq'],
         'status' => ['eq', 'gt', 'lt', 'ne'],
     ];
     protected array $columnMap = [
-        'name' => 'name',
-        'email' => 'email',
-        'phone' => 'phone',
-        'address' => 'address',
-        'city' => 'city',
         'postalCode' => 'postal_code',
-        'status' => 'status',
     ];
     protected array $operatorMap = [
         'eq' => '=',

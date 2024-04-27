@@ -8,6 +8,7 @@ use App\Filters\CustomerFilter;
 use App\Http\Resources\CustomerCollection;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Requests\UpdateCustomerRequest;
+use App\Http\Resources\CustomerResource;
 
 class CustomerController extends Controller
 {
@@ -41,7 +42,7 @@ class CustomerController extends Controller
      */
     public function store(StoreCustomerRequest $request)
     {
-        //
+        return new CustomerResource(Customer::create($request->all()));
     }
 
     /**
@@ -49,7 +50,11 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        $includePets = request()->query('includePets');
+        if ($includePets) {
+            return new CustomerResource($customer->loadMissing('pets'));
+        }
+        return new CustomerResource($customer);
     }
 
     /**
@@ -65,7 +70,7 @@ class CustomerController extends Controller
      */
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
-        //
+        $customer->update($request->all());
     }
 
     /**

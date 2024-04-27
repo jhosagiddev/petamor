@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pet;
-use Illuminate\Http\Request;
 use App\Filters\PetFilter;
+use Illuminate\Support\Arr;
+use Illuminate\Http\Request;
+use App\Http\Resources\PetCollection;
 use App\Http\Requests\StorePetRequest;
 use App\Http\Requests\UpdatePetRequest;
-use App\Http\Resources\PetCollection;
+use App\Http\Requests\BulkStorePetRequest;
 
 class PetController extends Controller
 {
@@ -41,6 +43,14 @@ class PetController extends Controller
     public function store(StorePetRequest $request)
     {
         //
+    }
+
+    public function bulkStore(BulkStorePetRequest $request)
+    {
+        $bulk = collect($request->all())->map(function ($arr, $key) {
+            return Arr::except($arr, ['customerId', 'isBreed']);
+        });
+        Pet::insert($bulk->toArray());
     }
 
     /**
