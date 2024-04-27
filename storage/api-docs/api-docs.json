@@ -81,6 +81,95 @@
                     }
                 }
             }
+        },
+        "/api/v1/customers/{id}": {
+            "get": {
+                "tags": [
+                    "Customer"
+                ],
+                "summary": "Mostrar la información de un Customer",
+                "operationId": "155f59b614e1620e56fcc62e7ac86776",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Aderson Felix"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "anderson@example.com"
+                                        },
+                                        "phone": {
+                                            "type": "string",
+                                            "example": "(3165) 7497093"
+                                        },
+                                        "address": {
+                                            "type": "string",
+                                            "example": "Centers Suite 777"
+                                        },
+                                        "city": {
+                                            "type": "string",
+                                            "example": "El vigia"
+                                        },
+                                        "postalCode": {
+                                            "type": "string",
+                                            "example": "4554"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "active"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T00:09:16.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T12:33:45.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "NOT FOUND",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "No query results for model [App\\\\Models\\\\Customer] #id"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
